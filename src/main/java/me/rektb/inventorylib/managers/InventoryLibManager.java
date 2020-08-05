@@ -31,7 +31,9 @@ public class InventoryLibManager implements Listener {
     public void init(JavaPlugin plugin) {
         this.plugin = plugin;
         Bukkit.getPluginManager().registerEvents(this, plugin);
-        plugin.getCommand("invlibtest").setExecutor(new TestCommandExecutor());
+        if(plugin instanceof InventoryLib) {
+            plugin.getCommand("invlibtest").setExecutor(new TestCommandExecutor());
+        }
         task = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, ()->{
             for(Menu m : menuList) {
                 if(m.getInventory().getViewers().size()<1) continue; //todo close
