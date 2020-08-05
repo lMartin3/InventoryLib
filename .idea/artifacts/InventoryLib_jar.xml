@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="InventoryLib:jar">
+    <output-path>$USER_HOME$/minecraft/test_1-8-8/plugins</output-path>
+    <root id="archive" name="InventoryLib.jar">
+      <element id="module-output" name="InventoryLib" />
+    </root>
+  </artifact>
+</component>
