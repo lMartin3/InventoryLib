@@ -1,0 +1,7 @@
+name: InventoryLib
+main: me.rektb.inventorylib.InventoryLib
+version: 1.0.0
+author: Rektb
+commands:
+  invlibtest:
+    description: "hola"
