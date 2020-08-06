@@ -32,6 +32,7 @@ public class InventoryContents {
 
     public void fillColumn(int column, MenuItem item) {
         for(int i = 0; i < menu.getRows(); i ++) {
+
             contents[i][column] = item;
         }
     }
