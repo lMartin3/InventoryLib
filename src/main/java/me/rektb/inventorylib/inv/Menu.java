@@ -57,4 +57,8 @@ public class Menu {
         if(menuItem==null) return;
         menuItem.clickTrigger(e);
     }
+
+    public static MenuBuilder builder() {
+        return new MenuBuilder();
+    }
 }
