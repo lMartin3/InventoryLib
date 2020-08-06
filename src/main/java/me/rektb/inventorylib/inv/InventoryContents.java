@@ -36,5 +36,12 @@ public class InventoryContents {
         }
     }
 
+    public void fillBorders(MenuItem item) {
+        fillRow(0, item);
+        fillRow(menu.getRows()-1, item);
+        fillColumn(0, item);
+        fillColumn(menu.getColumns(), item);
+    }
+
 
 }
