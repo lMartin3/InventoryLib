@@ -16,5 +16,25 @@ public class InventoryContents {
         return contents[row][column];
     }
 
+    public void fill(MenuItem item) {
+        for(int i = 0; i < menu.getRows(); i ++) {
+            for(int j = 0; j < menu.getColumns(); j++) {
+                contents[i][j] = item;
+            }
+        }
+    }
+
+    public void fillRow(int row, MenuItem item) {
+        for(int i = 0; i < menu.getColumns(); i++) {
+            contents[row][i] = item;
+        }
+    }
+
+    public void fillColumn(int column, MenuItem item) {
+        for(int i = 0; i < menu.getRows(); i ++) {
+            contents[i][column] = item;
+        }
+    }
+
 
 }
