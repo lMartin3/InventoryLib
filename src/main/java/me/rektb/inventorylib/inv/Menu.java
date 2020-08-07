@@ -67,8 +67,9 @@ public class Menu {
 
     public void click(InventoryClickEvent e) {
         int row = e.getSlot() / 9;
-        int slot = e.getSlot() % 9;
-        MenuItem menuItem = contents.get(row, slot);
+        int column = e.getSlot() % 9;
+        if(row>=rows||column>=columns||row<0||column<0) { return; }
+        MenuItem menuItem = contents.get(row, column);
         if(menuItem==null) return;
         menuItem.clickTrigger(e);
     }
