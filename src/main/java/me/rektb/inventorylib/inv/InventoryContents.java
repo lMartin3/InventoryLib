@@ -1,5 +1,9 @@
 package me.rektb.inventorylib.inv;
 
+import lombok.Getter;
+import org.bukkit.Bukkit;
+
+@Getter
 public class InventoryContents {
     private Menu menu;
     private MenuItem[][] contents;

@@ -36,8 +36,7 @@ public class InventoryLibManager implements Listener {
         }
         task = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, ()->{
             for(Menu m : menuList) {
-                if(m.getInventory().getViewers().size()<1) continue; //todo close
-                m.getProvider().update((Player) m.getInventory().getViewers().get(0), m.getContents());
+                m.tick();
             }
         }, 0, 1);
     }

@@ -16,7 +16,7 @@ public class Menu {
     private String title;
     private int rows = 3;
     private int columns = 9;
-    ContentProvider provider;
+    private ContentProvider provider;
     private InventoryContents contents;
     private Inventory inventory;
 
@@ -32,21 +32,36 @@ public class Menu {
     }
 
     public void open(Player p) {
-        if(inventory != null) ; //todo close it
         inventory = Bukkit.createInventory(null, rows*9, title);
         provider.init(p, contents);
-        for(int i=0; i<inventory.getSize();i++) {
-            int row = i / 9;
-            int column = i % 9;
-            MenuItem menuItem = contents.get(row, column);
-            if(menuItem==null) continue;
-            ItemStack item = menuItem.getItemStack();
-            if(item==null) continue;
-            inventory.setItem(i, item);
-        }
+        updateInventoryContents();
         p.openInventory(inventory);
     }
-    
+
+    public void updateInventoryContents() {
+        if(inventory==null) return;
+        for(int row=0;row<rows;row++) {
+            for(int column=0;column<columns;column++) {
+                MenuItem menuItem = contents.get(row, column);
+                if(menuItem==null) {
+                    continue;
+                }
+                ItemStack item = menuItem.getItemStack();
+                if(item==null) {
+                    continue;
+                }
+                inventory.setItem(row*9+column, item);
+            }
+        }
+    }
+
+    public void tick() {
+        if(inventory==null) return;
+        if(inventory.getViewers().size()<1) return;
+        provider.update((Player) inventory.getViewers().get(0), contents);
+        updateInventoryContents();
+    }
+
     public void close(Player p) {
     }
 
@@ -58,7 +73,10 @@ public class Menu {
         menuItem.clickTrigger(e);
     }
 
+
+
     public static MenuBuilder builder() {
         return new MenuBuilder();
     }
+
 }

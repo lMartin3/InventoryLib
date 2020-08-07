@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="InventoryLib:jar">
-    <output-path>$USER_HOME$/minecraft/test_1-8-8/plugins</output-path>
+    <output-path>$PROJECT_DIR$/../ClanesCTW/libraries</output-path>
     <root id="archive" name="InventoryLib.jar">
       <element id="module-output" name="InventoryLib" />
     </root>
