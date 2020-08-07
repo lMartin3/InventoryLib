@@ -45,7 +45,7 @@ public class InventoryContents {
         fillRow(0, item);
         fillRow(menu.getRows()-1, item);
         fillColumn(0, item);
-        fillColumn(menu.getColumns(), item);
+        fillColumn(menu.getColumns()-1, item);
     }
 
 
