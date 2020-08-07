@@ -113,6 +113,7 @@ public class InventoryLibManager implements Listener {
         if(clicked==null) return;
         Menu target = null;
         for(Menu m : menuList) {
+            if(m.getInventory()==null) continue;
             if(m.getInventory().equals(clicked)) { target = m; }
         }
         if(target==null) return;
